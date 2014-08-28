@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[O'Yue's Blog]]></title>
+  <title><![CDATA[欧悦茶具茶叶]]></title>
   <link href="http://weipipi.github.io/atom.xml" rel="self"/>
   <link href="http://weipipi.github.io/"/>
-  <updated>2014-08-28T15:46:07+08:00</updated>
+  <updated>2014-08-28T15:52:13+08:00</updated>
   <id>http://weipipi.github.io/</id>
   <author>
     <name><![CDATA[OYue]]></name>
