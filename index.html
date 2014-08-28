@@ -9,7 +9,8 @@
   <meta name="author" content="OYue">
 
   
-  <meta name="description" content="git clone git://github.com/imathis/octopress.git octopress cd octopress rbenv version # ??ruby??????1.9.2 gem install bundler # ??ruby1.9.2??bundler &hellip;">
+  <meta name="description" content="参考别人的文章，做了自己的记录。 1.准备工作 首先你必须要有以下的几样东西： git，以及github.com帐号，(我这里将blog放置在github上，没有就赶紧注册吧)
+ruby的开发环境，我这使用的Octopress需要Ruby1.9.2，这些我都有了 2.安装Octopress git &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/28/oyue-test/">OYue Test</a></h1>
+      <h1 class="entry-title"><a href="/blog/2014/08/28/oyue-test/">使用octopress在github发布blog</a></h1>
     
     
       <p class="meta">
@@ -87,15 +88,111 @@
   </header>
 
 
-  <div class="entry-content"><p>  git clone git://github.com/imathis/octopress.git octopress
-  cd octopress
-  rbenv version        # ??ruby??????1.9.2
-  gem install bundler  # ??ruby1.9.2??bundler
-  rbenv rehash         # If you use rbenv, rehash to be able to run the bundle command
-  bundle install       # ???????
-  rake install         # ?????Octopress??</p>
-</div>
+  <div class="entry-content"><blockquote><p>参考别人的文章，做了自己的记录。</p></blockquote>
+
+<h2>1.准备工作</h2>
+
+<p>首先你必须要有以下的几样东西：</p>
+
+<ol>
+<li><p>git，以及github.com帐号，(我这里将blog放置在github上，没有就赶紧注册吧)</p></li>
+<li><p>ruby的开发环境，我这使用的Octopress需要Ruby1.9.2，这些我都有了</p></li>
+</ol>
+
+
+<h2>2.安装Octopress</h2>
+
+<pre><code>git clone git://github.com/imathis/octopress.git octopress
+cd octopress
+gem install bundler  # 安装ruby1.9.2下的bundler
+bundle install       # 安装依赖的组件
+rake install         # 安装默认的Octopress主题
+</code></pre>
+
+<h2>3.配置github</h2>
+
+<p>在github上创建一个仓库，注意仓库名称要以下这种格式yourname.github.io，这样代码发布后自动这个url就可以访问了。</p>
+
+<h3>设定 GitHub Pages</h3>
+
+<pre><code>rake setup_github_pages
+</code></pre>
+
+<p>中间会有要求输入用户名地址之类的，照做就好了。</p>
+
+<pre><code>rake generate
+rake deploy
+</code></pre>
+
+<p>如果发布失败，提示版本不同步，可以执行以下操作：</p>
+
+<pre><code>octopress$ cd _deploy
+
+_deploy$ git pull https://github.com/weipipi/weipipi.github.io
+
+_deploy$ git push origin master
+
+octopress$ rake deploy
+</code></pre>
+
+<h2>4.将 source 也加入 git</h2>
+
+<pre><code>git add .
+git commit -m 'initial source commit'
+git push origin source
+</code></pre>
+
+<h2>5.更新 Octopress</h2>
+
+<p>日后有 Octopress 新版本发布，使用以下指令升级。</p>
+
+<pre><code>git remote add octopress git://github.com/imathis/octopress.git
+git pull octopress master     # Get the latest Octopress
+bundle install                # Keep gems updated
+rake update_source            # update the template's source
+rake update_style             # update the template's style
+</code></pre>
+
+<h2>6.发表新文章</h2>
+
+<pre><code>rake new_post["新文章名称"]
+</code></pre>
+
+<p>会在“source/_posts”目录下自动生成“Timestamp-qing-song-an-zhuang-octopress.markdown”，编辑后即可发布.</p>
+
+<pre><code>rake preview
+</code></pre>
+
+<p>会在本地启动sinatra服务，用浏览器打开 <a href="http://localhost:4000">http://localhost:4000</a> 就可以看到效果了。如果都没有问题就可以发布了。</p>
+
+<h2>7.发布</h2>
+
+<pre><code>rake gen_deploy
+rake deploy                 #若发布后无效果可试试此命令
+</code></pre>
+
+<h2>8.配置</h2>
+
+<ul>
+<li>配置文件为(_config.yml)：</li>
+</ul>
+
+
+<p> 按已有的项目改想改的内容就可以了。</p>
+
+<blockquote><p>修改后需要rake generate和rake deploy</p></blockquote>
+
+<ul>
+<li><p>Jekyll &amp; Plugins</p>
+
+<p>  paginate: 10                    # 每页的文章数量，超过翻页
+  recent_posts: 5                 # 右侧“最近发表”的模块里显示的文章数量
+  excerpt_link: &ldquo;Read on &rarr;&rdquo;  # 在文章中使用</div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/08/28/oyue-test/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -114,7 +211,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/08/28/oyue-test/">OYue Test</a>
+        <a href="/blog/2014/08/28/oyue-test/">使用octopress在github发布blog</a>
       </li>
     
   </ul>
