@@ -4,7 +4,7 @@
   <title><![CDATA[O'Yue's Blog]]></title>
   <link href="http://weipipi.github.io/atom.xml" rel="self"/>
   <link href="http://weipipi.github.io/"/>
-  <updated>2014-08-28T14:58:11+08:00</updated>
+  <updated>2014-08-28T15:20:32+08:00</updated>
   <id>http://weipipi.github.io/</id>
   <author>
     <name><![CDATA[OYue]]></name>
@@ -18,7 +18,13 @@
     <link href="http://weipipi.github.io/blog/2014/08/28/oyue-test/"/>
     <updated>2014-08-28T14:42:45+08:00</updated>
     <id>http://weipipi.github.io/blog/2014/08/28/oyue-test</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>  git clone git://github.com/imathis/octopress.git octopress
+  cd octopress
+  rbenv version        # ??ruby??????1.9.2
+  gem install bundler  # ??ruby1.9.2??bundler
+  rbenv rehash         # If you use rbenv, rehash to be able to run the bundle command
+  bundle install       # ???????
+  rake install         # ?????Octopress??</p>
 ]]></content>
   </entry>
   
